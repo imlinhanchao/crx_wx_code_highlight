@@ -12,4 +12,4 @@
 
 1. 下载[wx_code_highlight.crx](https://github.com/imlinhanchao/crx_wx_code_highlight/raw/master/wx_code_highlight.crx)；  
 2. 打开`chrome://extensions/`。  
-3. 将**wx_code_highlight.crx**拖拽进去即可。
+3. 将 **wx_code_highlight.crx** 拖拽进去即可。

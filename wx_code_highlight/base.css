@@ -16,12 +16,65 @@
 	left:0;
 	right:0;
 	bottom:0;
-	height: 200px;
 	position: fixed;
-	width: 500px;
 	background: #FFF;
 	padding: 5px;
-	border: 1px solid #000;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px 1px #999;
+    height: 80%;
+    width: 80%;
+    max-width: 500px;
+    max-height: 500px;
+    overflow: hidden;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+#code_dlg input, #code_dlg textarea, #code_dlg button{
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+#code_dlg textarea{
+    color: #FFF;
+    width: calc(100% - 20px);
+    position: absolute;
+    left: 0;
+    top: 35px;
+    bottom: -20px;
+    margin: 10px 0;
+    border: none;
+    background-color: #313131;
+    padding: 10px;
+}
+#code_dlg #lang{
+    width: 80px;
+}
+#code_dlg input{
+    width: 50px;
+    border: 0;
+    border-bottom: 1px solid #131313;
+    text-align: center;
+    appearance: none;
+}
+
+#code_dlg label{
+    display: inline-block;
+    padding: 0 5px;
+    font-weight: bold;
+}
+#code_dlg input[type='number'] {
+    -moz-appearance:textfield;
+}
+#code_dlg input[type=number]::-webkit-inner-spin-button,
+#code_dlg input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+#code_dlg #preview{
+    border: 0;
+    margin: 0 5px;
+    padding: 2px 5px;
+    color: #FFF;
+    background-color: #313131;
+    width: auto;
+    cursor: pointer;
 }
 #code_bg{
     display: none;
@@ -35,12 +88,13 @@
 }
 #code_close{
     position: absolute;
-    top: 5px;
-    right: 7px;
+    top: 0px;
+    right: 0px;
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
     text-align: center;
-    line-height: 20px;
+    line-height: 40px;
+    font-size: 3em;
 }

@@ -1,0 +1,46 @@
+#tool_code:hover{
+    border: 1px solid #e7e7eb;
+    margin: 0 5px;
+}
+#tool_code{
+    width: 20px;
+	height: 20px;
+	background: url(https://cdn.sxisa.com/code.png) no-repeat center center;
+	background-size: 15px auto;
+	opacity: .6;
+    margin: 1px 6px;
+}
+#code_dlg{
+    margin:auto;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	height: 200px;
+	position: fixed;
+	width: 500px;
+	background: #FFF;
+	padding: 5px;
+	border: 1px solid #000;
+}
+#code_bg{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(200,200,200,.5);
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+#code_close{
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 20px;
+}

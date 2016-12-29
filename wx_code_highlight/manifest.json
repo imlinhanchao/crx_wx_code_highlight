@@ -1,0 +1,14 @@
+{
+  "name": "微信高亮代码插入器",
+  "manifest_version": 2,
+  "version": "1.0",
+  "description": "微信高亮代码插入器",
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [{
+      "matches": ["https://mp.weixin.qq.com/*"],
+      "css": ["highlight.min.css", "base.css"],
+      "js": ["weixin.js", "highlight.min.js", "jquery.min.js"]
+    }]
+}

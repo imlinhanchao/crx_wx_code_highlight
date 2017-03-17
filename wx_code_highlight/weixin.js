@@ -44,6 +44,7 @@ window.onload = function(ev){
 		if("" != width) $("#view").css("min-width", width + "px");
 		hljs.highlightBlock(document.getElementById("view"));
 		$("#result .hljs").each(function(){ 
+			this.style.background = $(this).css("background");
 			this.style.color = $(this).css("color"); 
 			this.style.fontWeight = $(this).css("font-weight"); 
 			$(this).find("[class*='hljs']").each(function(){ 
@@ -100,6 +101,7 @@ window.onload = function(ev){
 
 }
 
+// 注册Tab代码缩进功能
 var TextAreaTab = 
 { 
    Register : function(obj) 

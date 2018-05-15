@@ -20,10 +20,28 @@ window.onload = function(ev){
 	$("#js_toolbar_0").append("<div id='tool_code' class='edui-box edui-button edui-default edui-for-formatmatch'></div>");
 	$(document.body).append("<div id='code_bg'><div id='code_dlg' style=''><div id='code_close'>×</div><p><label for='lang'>Language</label><input type='text' required id='lang' value='c'><label for='width'>Min Width</label><input type='number' required id='width' value='400'><button id='preview'>Insert</button></p><p><textarea name='code' cols='30' rows='10' id='code_txt'></textarea></p></div></div><div id='result'><pre style='overflow-x:auto;'><code id='view' style='font-size: 0.85em;font-family: Consolas, Menlo, Courier, monospace;margin: 0px 0.15em;padding: 0px 0.3em;white-space: pre-wrap;display: inline;white-space: pre;overflow: auto;padding: 0.5em 0.7em;display: block !important;display: block;overflow-x: auto;padding: 0.5em;color: #abb2bf;text-size-adjust: none;'></code></pre>");
 	$("#tool_code").click(function(ev){
+		var sel = editObj.win.getSelection();
+		if (sel.rangeCount) {
+			var text = sel.toString()
+			sel.deleteFromDocument();
+			var r = sel.getRangeAt(0);
+			var selFrag = r.cloneContents();
+			var code = document.createElement('code');
+			$(code).css({
+				backgroundColor: '#d5d5d5',
+				padding: '5px',
+				borderRadius: '2px',
+				fontFamily: "'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace",
+				margin: '5px'
+			});
+			code.innerHTML = text;
+			r.insertNode(code);
+			return;
+		}
 		$("#code_bg").show();
 	});
 	$("#tool_code").mouseover(function(){
-		var o = {top: $("#tool_code").offset().top - 25, left: $("#tool_code").offset().left - 22};
+		var o = {top: $("#tool_code").offset().top - 25, left: $("#tool_code").offset().left - 22, width: '5em'};
 		$(".tooltip").css(o);
 		$(".tooltip_inner").text("插入代码");
 		$(".tooltip").show();
@@ -32,7 +50,7 @@ window.onload = function(ev){
 		$(".tooltip").hide();
 	});
 	$("#code_close").click(function(){
-		$("#code_bg").hide();		
+		$("#code_bg").hide();
 	});
 	$("#preview").click(function(){
 		var lang = $("#lang").val();

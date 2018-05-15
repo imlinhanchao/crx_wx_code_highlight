@@ -2,6 +2,11 @@
 
 安装此插件可用于在微信公众平台文章编辑时插入带高亮格式代码。
 
+## 更新记录
+2018/05/15 1.1
+1. 新增片段代码样式，可以选择段落中某个片段代码。点击添加底色和等宽字体。
+2. 修正公众号改版后，提示文本样式错误问题。
+
 ## 效果图：
 
 1. 安装后会在编辑器上新增一个按钮；![image](https://github.com/imlinhanchao/crx_wx_code_highlight/raw/master/screenshot/editor.jpg)  

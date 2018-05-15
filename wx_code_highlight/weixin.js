@@ -47,6 +47,7 @@ window.onload = function(ev){
 		$(".tooltip").show();
 	});
 	$("#tool_code").mouseout(function(){
+		$(".tooltip").css({width: 'auto'})
 		$(".tooltip").hide();
 	});
 	$("#code_close").click(function(){

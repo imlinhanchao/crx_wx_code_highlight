@@ -29,12 +29,12 @@ window.onload = function(ev){
 			var code = document.createElement('code');
 			$(code).css({
 				backgroundColor: '#d5d5d5',
-				padding: '5px',
-				borderRadius: '2px',
+				padding: '2px 5px',
+				borderRadius: '4px',
 				fontFamily: "'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace",
 				margin: '5px'
 			});
-			code.innerHTML = text;
+			code.innerText = text;
 			r.insertNode(code);
 			return;
 		}

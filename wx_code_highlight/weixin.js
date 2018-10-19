@@ -21,7 +21,7 @@ window.onload = function(ev){
 	$(document.body).append("<div id='code_bg'><div id='code_dlg' style=''><div id='code_close'>×</div><p><label for='lang'>Language</label><input type='text' required id='lang' value='c'><label for='width'>Min Width</label><input type='number' required id='width' value='400'><button id='preview'>Insert</button></p><p><textarea name='code' cols='30' rows='10' id='code_txt'></textarea></p></div></div><div id='result'><pre style='overflow-x:auto;'><code id='view' style='font-size: 0.85em;font-family: Consolas, Menlo, Courier, monospace;margin: 0px 0.15em;padding: 0px 0.3em;white-space: pre-wrap;display: inline;white-space: pre;overflow: auto;padding: 0.5em 0.7em;display: block !important;display: block;overflow-x: auto;padding: 0.5em;color: #abb2bf;text-size-adjust: none;'></code></pre>");
 	$("#tool_code").click(function(ev){
 		var sel = editObj.win.getSelection();
-		if (sel.rangeCount) {
+		if (sel.rangeCount && sel.toString() != '') {
 			var text = sel.toString()
 			sel.deleteFromDocument();
 			var r = sel.getRangeAt(0);

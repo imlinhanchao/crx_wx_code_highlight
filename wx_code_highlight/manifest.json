@@ -1,8 +1,8 @@
 {
-  "name": "微信代码高亮插入器",
+  "name": "微信公众号代码高亮插入器",
   "manifest_version": 2,
   "version": "1.2",
-  "description": "微信代码高亮插入器",
+  "description": "微信公众号代码高亮插入器",
   "icons" : {
     "16" : "icon.png",
     "48" : "icon.png",

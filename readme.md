@@ -19,8 +19,12 @@
 4. 手机上的效果；  
 ![image](https://github.com/imlinhanchao/crx_wx_code_highlight/raw/master/screenshot/demo.gif)  
 
-## 安装方式
+## 手动安装方式
 
 1. 下载[wx_code_highlight.crx](https://github.com/imlinhanchao/crx_wx_code_highlight/raw/master/wx_code_highlight.crx)；  
 2. 打开`chrome://extensions/`，将开发者模式打开。  
 3. 将 **wx_code_highlight.crx** 拖拽进去即可。
+
+## 应用商店安装
+~~吗耶，终于发布到商店了！~~  
+https://chrome.google.com/webstore/detail/kbiedhbfjcadjlajanccenpiicgdbfaf

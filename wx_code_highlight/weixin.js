@@ -1,5 +1,14 @@
-window.onload = function(ev){
+window.onload = check;
 
+function check(){
+	if ($("#ueditor_0").length > 0) {
+		init()
+	} else {
+		setTimeout(check, 500);
+	}
+}
+
+function init() {
 	var lastEditRange;
 	// 编辑框点击事件
 	var editObj = {"win" : $("#ueditor_0")[0].contentWindow, "doc" : $("#ueditor_0")[0].contentDocument };
@@ -117,7 +126,6 @@ window.onload = function(ev){
 	});
 
 	TextAreaTab.Register(document.getElementById('code_txt')); // 实现编辑框Tab功能 
-
 }
 
 // 注册Tab代码缩进功能

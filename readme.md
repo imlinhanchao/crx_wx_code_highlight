@@ -3,6 +3,10 @@
 安装此插件可用于在微信公众平台文章编辑时插入带高亮格式代码。
 
 ## 更新记录
+2020/02/05 V1.30
+1. 加入可对已插入的代码修改功能（点击代码块再点击插入代码按钮）。
+2. 加入可选择高亮主题功能。
+
 2018/05/15 V1.11
 1. 修正行内代码高亮时，没有对 HTML 标签转义。
 2. 更新行内代码样式。
@@ -13,11 +17,11 @@
 
 ## 效果图：
 
-1. 安装后会在编辑器上新增一个按钮；![image](https://github.com/imlinhanchao/crx_wx_code_highlight/raw/master/screenshot/editor.jpg)  
-2. 点击按钮会出现一个代码编辑器，写好代码后按`Insert`；![image](https://github.com/imlinhanchao/crx_wx_code_highlight/raw/master/screenshot/code.jpg)  
-3. 最终效果；![image](https://github.com/imlinhanchao/crx_wx_code_highlight/raw/master/screenshot/home.jpg)  
+1. 安装后会在编辑器上新增一个按钮；![image](./screenshot/editor.jpg)  
+2. 点击按钮会出现一个代码编辑器，写好代码后按`Insert`；![image](./screenshot/code.jpg)  
+3. 最终效果；![image](./screenshot/home.jpg)  
 4. 手机上的效果；  
-![image](https://github.com/imlinhanchao/crx_wx_code_highlight/raw/master/screenshot/demo.gif)  
+![image](./screenshot/demo.gif)  
 
 ## 手动安装方式
 

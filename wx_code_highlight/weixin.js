@@ -107,7 +107,7 @@ function init() {
 			$('#code_bg').show();
 			$('#lang').val(lang);
 			$('#style').val(style);	
-			$('#code_txt').val(code.replace(/<br(\/|)>/g, '\n'));	
+			$('#code_txt').val(code.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/<br(\/|)>/g, '\n'));	
 			editObj.cur = $(sel.anchorNode).parents('pre')
 		}
 		else if (sel.rangeCount && sel.toString() != '') {
@@ -168,7 +168,7 @@ function init() {
 			$(this).html($(this).html().replace(/\n/g, '<br/>'));
 		});
 
-		$('#result #view').attr('data-wx-hl-code', code.replace(/\n/g, '<br/>'));
+		$('#result #view').attr('data-wx-hl-code', code.replace(/<br(\/|)>/g, '&lt;br/&gt;').replace(/\n/g, '&lt;br/&gt;'));
 		$('#result #view').attr('data-wx-hl-lang', lang);
 		$('#result #view').attr('data-wx-hl-style', $('#style').val());
 		var view = $('#result #view')

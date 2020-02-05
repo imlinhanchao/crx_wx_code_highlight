@@ -11,7 +11,7 @@ function check(){
 function init() {
 	var lastEditRange;
 	// 编辑框点击事件
-	var editObj = {"win" : $("#ueditor_0")[0].contentWindow, "doc" : $("#ueditor_0")[0].contentDocument };
+	var editObj = {"win" : $("#ueditor_0")[0].contentWindow, "doc" : $("#ueditor_0")[0].contentDocument, cur: null };
 
 	editObj.doc.body.addEventListener("click", function() {
 		var selection = editObj.win.getSelection();
@@ -30,7 +30,15 @@ function init() {
 	$(document.body).append("<div id='code_bg'><div id='code_dlg' style=''><div id='code_close'>×</div><p><label for='lang'>Language</label><input type='text' required id='lang' value='c'><label for='width'>Min Width</label><input type='number' required id='width' value='400'><button id='preview'>Insert</button></p><p><textarea name='code' cols='30' rows='10' id='code_txt'></textarea></p></div></div><div id='result'><pre style='overflow-x:auto;'><code id='view' style='font-size: 0.85em;font-family: Consolas, Menlo, Courier, monospace;margin: 0px 0.15em;padding: 0px 0.3em;white-space: pre-wrap;display: inline;white-space: pre;overflow: auto;padding: 0.5em 0.7em;display: block !important;display: block;overflow-x: auto;padding: 0.5em;color: #abb2bf;text-size-adjust: none;'></code></pre>");
 	$("#tool_code").click(function(ev){
 		var sel = editObj.win.getSelection();
-		if (sel.rangeCount && sel.toString() != '') {
+		if($(sel.anchorNode).attr('data-wx-hl-code') || $(sel.anchorNode).parent('[data-wx-hl-code]').attr('data-wx-hl-code')) {
+			var code = $(sel.anchorNode).attr('data-wx-hl-code') || $(sel.anchorNode).parent('[data-wx-hl-code]').attr('data-wx-hl-code');
+			var lang = $(sel.anchorNode).attr('data-wx-hl-lang') || $(sel.anchorNode).parent('[data-wx-hl-lang]').attr('data-wx-hl-lang');
+			$("#code_bg").show();
+			$("#lang").val(lang.replace(/<br(\/|)>/g, '\n'));
+			$("#code_txt").val(code.replace(/<br(\/|)>/g, '\n'));	
+			editObj.cur = $(sel.anchorNode).parent('pre')
+		}
+		else if (sel.rangeCount && sel.toString() != '') {
 			var text = sel.toString()
 			sel.deleteFromDocument();
 			var r = sel.getRangeAt(0);
@@ -61,14 +69,16 @@ function init() {
 	});
 	$("#code_close").click(function(){
 		$("#code_bg").hide();
+		$("#lang").val('c');
+		$("#code_txt").val('');
 	});
 	$("#preview").click(function(){
 		var lang = $("#lang").val();
-		var code = $("#code_txt").val().replace(/\t/g, "  ").trim();
+		var code = $("#code_txt").val();
 		if("" == code) return false;
 		var width = $("#width").val();
 		$("#view").attr("class", lang);
-		$("#view").text(code);
+		$("#view").text(code.replace(/\t/g, "  ").trim());
 		if("" != width) $("#view").css("min-width", width + "px");
 		hljs.highlightBlock(document.getElementById("view"));
 		$("#result .hljs").each(function(){ 
@@ -84,7 +94,13 @@ function init() {
 		$("#result .hljs").each(function(){
 			$(this).html($(this).html().replace(/\n/g, "<br/>"));
 		});
-		var code = $("#result").html().trim()
+
+		$("#result #view").attr('data-wx-hl-code', code.replace(/\n/g, "<br/>"));
+		$("#result #view").attr('data-wx-hl-lang', lang);
+		var view = $("#result #view")
+		view.removeAttr('id');
+		var codeHtml = $("#result").html().trim()
+		view.attr('id', 'view');
 
 		var edit = editObj.doc.body;
 		edit.focus();
@@ -93,9 +109,14 @@ function init() {
 			selection.removeAllRanges();
 			selection.addRange(lastEditRange);
 		}
-		if (selection.anchorNode.nodeName != '#text') {
+
+		if (editObj.cur) {
+			editObj.cur.html($(codeHtml).html())
+			editObj.cur = null;
+		}
+		else if (selection.anchorNode.nodeName != '#text') {
 			var codeNode = editObj.doc.createElement("span");
-			codeNode.innerHTML = code;
+			codeNode.innerHTML = codeHtml;
 			
 			if (edit.childNodes.length > 0) {
 				selection.anchorNode.appendChild(codeNode);

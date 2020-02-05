@@ -1,7 +1,7 @@
 {
   "name": "微信公众号代码高亮插入器",
   "manifest_version": 2,
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "微信公众号代码高亮插入器",
   "icons" : {
     "16" : "icon.png",
@@ -13,7 +13,7 @@
   },
   "content_scripts": [{
       "matches": ["https://mp.weixin.qq.com/*"],
-      "css": ["highlight.min.css", "base.css"],
+      "css": ["base.css"],
       "js": ["weixin.js", "highlight.min.js", "jquery.min.js"]
     }]
 }

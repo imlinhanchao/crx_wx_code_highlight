@@ -8,6 +8,29 @@ function check(){
 	}
 }
 
+let code_icon = `<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 595.3 595.3" style="enable-background:new 0 0 595.3 595.3;" xml:space="preserve">
+<g id="XMLID_28_">
+	<path id="XMLID_29_" d="M48.1,292v-7c11.6-1.7,21.3-4.9,29-9.6c6.7-4,11.4-9.4,14.2-16c2.8-6.6,4.2-15.9,4.2-27.8l-0.3-32.3
+		l-1-51.8c0-33.3,2.3-56.8,6.8-70.7c4.1-12.4,10.3-22.2,18.5-29.4c8.3-7.2,18.7-11.9,31.4-14.1c10-1.9,19.5-2.9,28.5-2.9l13.1-0.3
+		l4.8-0.3v9c-9.2,0.6-16.2,1.8-21,3.5c-4.8,1.7-9.6,4.6-14.2,8.6c-5.8,4.9-10.1,10.5-13,16.6s-4.8,14.1-5.6,23.7
+		c-0.6,6.8-1,21.2-1,43.2l0.3,59.2c0,24.7-1,41.7-3.1,50.9c-2,9.2-6.6,17.6-13.7,25.3c-8.4,9-19.8,14.7-34.2,17.3v2.7
+		c12.5,1.7,23,6.8,31.6,15.4c6.7,6.4,11.4,14.1,14.3,23.2c2.9,9.1,4.4,20.7,4.4,34.8l0.3,33.3v67.6c0,23.7,1,40.6,3,50.6
+		c2,10,6.1,18.5,12.3,25.3c4.7,5.3,10.6,9.5,17.6,12.5c7,3,14.3,4.5,21.8,4.5v8.6l-7-0.3c-23.1,0-41.2-2.5-54.5-7.4
+		c-14.4-5.6-25-15.4-31.9-29.6c-6.9-14.2-10.3-33.3-10.3-57.5l0.3-34.6l1-53.1l1-37.8c0-17.1-3.6-29.7-10.8-37.8
+		C77.8,299.3,65.5,294.2,48.1,292z"/>
+	<path id="XMLID_31_" d="M547.2,292c-17.2,2.1-29.4,7.3-36.7,15.4c-7.3,8.1-11,20.6-11,37.5l1,38.1l1,53.1l0.3,35.2
+		c0,23.9-3.4,42.9-10.3,57c-6.9,14.1-17.5,23.9-31.9,29.5c-13.3,4.9-31.5,7.4-54.4,7.4l-7.4,0.3v-8.6c7.7,0,15.1-1.5,22.1-4.5
+		c7-3,12.8-7.2,17.6-12.5c7.7-8.5,12.4-21.6,14.2-39.1c0.9-6.6,1.3-26.4,1.3-59.3v-45.2l0.3-33.3c0-14.1,1.4-25.7,4.3-34.8
+		c2.9-9.1,7.7-16.8,14.3-23.2c8.8-8.5,19.3-13.7,31.6-15.4V287c-14.4-2.6-25.8-8.3-34.2-17.3c-7.1-7.7-11.7-16.1-13.7-25.3
+		c-2-9.2-3.1-26.3-3.1-51.5l0.3-48.3v-13.8c0-19.6-0.3-32.8-1-39.7c-0.9-9.6-2.7-17.5-5.6-23.7c-2.9-6.2-7.2-11.7-13-16.6
+		c-4.7-4.1-9.5-6.9-14.3-8.6c-4.8-1.7-11.9-2.9-21.1-3.5v-9l4.8,0.3l13.2,0.3c9,0,18.6,1,28.7,2.9c12.7,2.1,23.1,6.8,31.4,14.1
+		c8.3,7.2,14.4,17.1,18.5,29.4c4.5,13.9,6.8,37.2,6.8,70l-1,52.4l-0.3,32.6c0,11.9,1.4,21.2,4.2,27.7c2.8,6.5,7.5,11.8,14.2,15.8
+		c7.7,4.7,17.4,7.9,29,9.6V292z"/>
+</g>
+</svg>`
 
 function init() {
 	var lastEditRange;
@@ -64,13 +87,12 @@ function init() {
 		<div id="code_dlg" style="">
 			<div id="code_close">×</div>
 			<p class="tools">
-				<label for="lang">Language</label> <input type="text" required id="lang" value="c">
-				<label for="width">Min Width</label> <input type="number" required id="width" value="400">
-				<label for="style">Style</label> 
+				<label for="lang">语言</label> <input type="text" required id="lang" value="c">\
+				<label for="style">高亮主题</label> 
 				<select id="style">
 					${styles.map(s => `<option ${s == 'atom-one-dark' ? 'selected': ''} value=${s}>${s}</option>`).join('')}
 				</select>
-				<button id="preview">Insert</button>
+				<button id="preview">插入</button>
 			</p>
 			<p class="codes">
 				<textarea name="code" cols="30" rows="10" id="code_txt"></textarea>
@@ -94,6 +116,9 @@ function init() {
 		</pre>
 	</div>`);
 
+	$('#lang').val(localStorage.getItem('wx-hl-code') || 'c');
+
+
 	$('#style').change(function(ev) {
 		loadStyle($('#style').val())
 	})
@@ -111,10 +136,18 @@ function init() {
 			editObj.cur = $(sel.anchorNode).parents('pre')
 		}
 		else if (sel.rangeCount && sel.toString() != '') {
+			if ($(sel.anchorNode).parents('[data-wx-hl-inline]').attr('data-wx-hl-inline')) {
+				var span = $(sel.anchorNode).parents('[data-wx-hl-inline]')
+				var code = span.text();
+				span.html(code);
+				span.removeAttr('data-wx-hl-inline');
+				return;
+			}
 			var text = sel.toString()
 			sel.deleteFromDocument();
 			var r = sel.getRangeAt(0);
 			var selFrag = r.cloneContents();
+			var span = document.createElement('span');
 			var code = document.createElement('code');
 			$(code).css({
 				backgroundColor: '#d5d5d5',
@@ -123,8 +156,10 @@ function init() {
 				fontFamily: '"Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace',
 				margin: '5px'
 			});
+			$(span).attr('data-wx-hl-inline', true);
 			code.innerText = text;
-			r.insertNode(code);
+			span.appendChild(code);
+			r.insertNode(span);
 			return;
 		}
 		$('#code_bg').show();
@@ -147,14 +182,23 @@ function init() {
 	$('#preview').click(function(){
 		var lang = $('#lang').val();
 		var code = $('#code_txt').val();
+		localStorage.setItem('wx-hl-code', lang);
 		if('' == code) return false;
-		var width = $('#width').val();
 		$('#view').attr('class', lang);
 		$('#view').css('background', '');
 		$('#view').text(code.replace(/\t/g, '  ').trim());
-		if('' != width) $('#view').css('min-width', width + 'px');
 		hljs.highlightBlock(document.getElementById('view'));
-		$('#result .hljs').each(function(){ 
+		hljs.lineNumbersBlock(document.getElementById('view'));
+		$('#result .hljs-ln-line, #result .hljs, #result .hljs-ln').each(function(){ 
+			this.style.userSelect = $(this).css('user-select');
+			this.style.textAlign = $(this).css('text-align');
+			this.style.verticalAlign = $(this).css('vertical-align');
+			this.style.borderCollapse = $(this).css('border-collapse');
+			let borderRight = $(this).css('border-right');
+			let border = $(this).css('border') || 'none';
+			this.style.border = border;
+			this.style.borderRight = borderRight;
+			this.style.padding = $(this).css('padding');
 			this.style.background = $(this).css('background');
 			this.style.color = $(this).css('color'); 
 			this.style.fontWeight = $(this).css('font-weight'); 

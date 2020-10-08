@@ -208,6 +208,14 @@ function init() {
 				this.style.fontStyle = $(this).css('font-style'); 
 			}) 
 		});
+		$('#result .hljs-ln-code').each(function() {
+			var html = $(this).html();
+			let mat = html.match(/^ +/) || [''];
+			let space = '';
+			for(let i = 0; i < mat[0].length; i++) space += '&nbsp;';
+			html = html.replace(/^ +/, space);
+			$(this).html(html);
+		})
 		$('#result .hljs').each(function(){
 			$(this).html($(this).html().replace(/\n/g, '<br/>'));
 		});
